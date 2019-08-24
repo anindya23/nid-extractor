@@ -211,4 +211,7 @@ ENV/
 # mkdocs documentation
 /site
 
+# Config files
+config.*
+
 # End of https://www.gitignore.io/api/macos,linux,django,python,pycharm
