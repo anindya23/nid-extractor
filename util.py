@@ -1,8 +1,10 @@
 import application
 import config
+import logging
 
 class Util:
     __instance = None
+    __logger = None
 
     @staticmethod
     def getInstance():
@@ -16,3 +18,11 @@ class Util:
         else:
             Util.__instance = self
 
+    def get_logger(self):
+        global __logger
+
+        if not __logger:
+            logging.config.fileConfig(config.LOG_CONFIG_FILE)
+            __logger = logging.getLogger(__name__)
+
+        return __logger
