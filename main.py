@@ -7,6 +7,7 @@ def extract_nid():
     try:
         files = Util.getInstance().get_image_files_from_directory(config.IN_FILE_DIR)
         Helper.getInstance().process_and_save(files)
+        print(Helper.getInstance().get_nid_list(files))
     except Exception as e:
         Util.getInstance().get_logger().error(e)
 
