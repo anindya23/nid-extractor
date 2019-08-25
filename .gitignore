@@ -214,4 +214,7 @@ ENV/
 # Config files
 config.*
 
+# Ignore contents under vendor
+vendor/
+
 # End of https://www.gitignore.io/api/macos,linux,django,python,pycharm
