@@ -17,3 +17,17 @@ class Helper:
             raise Exception("This helper class is a singleton!")
         else:
             Helper.__instance = self
+
+    def process_and_save(self, files):
+        try:
+            for file in files:
+                im = Image.open(config.IN_FILE_DIR + file)
+                im = im.filter(ImageFilter.MedianFilter())
+                enhancer = ImageEnhance.Contrast(im)
+                im = enhancer.enhance(2)
+                im = im.convert('1')
+                im.save(config.OUT_FILE_DIR + file)
+        except FileNotFoundError as fnf:
+            Util.getInstance().get_logger().error(fnf)
+        except Exception as e:
+            Util.getInstance().get_logger().error(e)
