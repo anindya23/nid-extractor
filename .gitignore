@@ -217,4 +217,9 @@ config.*
 # Ignore contents under vendor
 vendor/
 
+# Ignore Log and Cache files
+var/logs/
+var/files/
+var/cache/
+
 # End of https://www.gitignore.io/api/macos,linux,django,python,pycharm
