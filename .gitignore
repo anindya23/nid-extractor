@@ -211,9 +211,6 @@ ENV/
 # mkdocs documentation
 /site
 
-# Config files
-config.*
-
 # Ignore contents under vendor
 vendor/
 
