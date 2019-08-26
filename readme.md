@@ -27,5 +27,11 @@ python3.6 main.py
 ```
 
 ## Important Notes
-
+In this project, I tried to make it as simple as possible. As I didn't follow the standard way to read the NID from the image, it has some limitations as follows:
+* This project is completely dependant on Tesseract in case of segmentation.
+* I didn't implemented any training process explicitely. Rather implemented Tesseract Internal process.
+* Recognition process completely based on Tesseract.
+* Not production ready
+* No noise minimization process while segmentation. So input images must be in high quality and properly cropped.
+* No multilingual recognition support 
 
