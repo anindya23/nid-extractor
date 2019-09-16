@@ -37,12 +37,21 @@ class Helper:
         nid = None
 
         text = pytesseract.image_to_string(Image.open(config.OUT_FILE_DIR + file))
-        list = re.findall(r'\d+', text)
 
-        for item in list:
-            if len(str(item)) == 13:
-                nid = item
-                break
+        res = text.partition("N0")[2]
+        if not res:
+            res = text.partition("NO")[2]
+
+        if res.find(" ") == 1:
+            res = res[1:]
+
+        res = res.replace(" ", "")
+
+        list = re.findall(r'\d+', res)
+        item = "".join(list)
+
+        if len(str(item)) == 13 or len(str(item)) == 17:
+            nid = item
         return nid
 
     def get_nid_list(self, files):
